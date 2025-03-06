@@ -1,0 +1,46 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "A sample Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^25.9.8",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.yourname.myelectronapp",
+    "productName": "MyElectronApp",
+    "files": [
+      "main.js",
+      "package.json",
+      "src_python/**/*",
+      "src/**/*",
+      "logo/**/*",
+      "index.html"
+    ],
+    "extraResources": [
+      {
+        "from": "src_python/",
+        "to": "src_python/"
+      },
+      {
+        "from": "data/",
+        "to": "data/"
+      },
+      {
+        "from": "data_export/",
+        "to": "data_export/"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "logo/icon.ico"
+    }
+  }
+}
